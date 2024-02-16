@@ -9,21 +9,26 @@ fn main() {
 
     let random_number = rand::thread_rng().gen_range(1, 101);
 
-    println!("The random number is: {}", random_number);
+    //println!("The random number is: {}", random_number);
 
-    let mut bet = String::new();
+    loop {
+        let mut bet = String::new();
 
-    io::stdin()
-        .read_line(&mut bet)
-        .expect("Error to read your bet!");
+        io::stdin()
+            .read_line(&mut bet)
+            .expect("Error to read your bet!");
 
-    let bet: u32 = bet.trim().parse().expect("Please provide a number!");
+        let bet: u32 = bet.trim().parse().expect("Please provide a number!");
 
-    println!("You said: {} ", bet);
+        println!("You said: {} ", bet);
 
-    match bet.cmp(&random_number) {
-        Ordering::Less => println!("Very low!"),
-        Ordering::Greater => println!("Very high!"),
-        Ordering::Equal => println!("You won!"),
+        match bet.cmp(&random_number) {
+            Ordering::Less => println!("Very low!"),
+            Ordering::Greater => println!("Very high!"),
+            Ordering::Equal => {
+                println!("You won!");
+                break;
+            }
+        }
     }
 }

@@ -1,9 +1,3 @@
-# rust-guessing-game-
-# rust-guessing-game-
-# rust-guessing-game-
-# rust-guessing-game-
-# rust-guessing-game-
-# rust-guessing-game-
-# rust-guessing-game-
-# rust-guessing-game-
-# rust-guessing-game-
+# Rust Guessing Game 
+
+## This code is an introduction for the Rust language, found on official Rust book. 

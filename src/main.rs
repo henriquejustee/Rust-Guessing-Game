@@ -9,8 +9,6 @@ fn main() {
 
     let random_number = rand::thread_rng().gen_range(1, 101);
 
-    //println!("The random number is: {}", random_number);
-
     loop {
         let mut bet = String::new();
 
@@ -18,7 +16,13 @@ fn main() {
             .read_line(&mut bet)
             .expect("Error to read your bet!");
 
-        let bet: u32 = bet.trim().parse().expect("Please provide a number!");
+        let bet: u32 = match bet.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("Please provide a number!");
+                continue;
+            }
+        };
 
         println!("You said: {} ", bet);
 
